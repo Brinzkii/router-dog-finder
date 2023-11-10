@@ -1,0 +1,17 @@
+.DogList {
+    list-style-type: none;
+}
+
+.DogList-item {
+    margin-bottom: 20px;
+}
+
+.DogList-item > a {
+    font-size: x-large;
+    color: black;
+}
+
+.DogList-item > img {
+    width: 25vw;
+    height: auto;
+}

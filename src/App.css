@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+
+}
+
+.App-header {
+  background-color: teal;
+  min-height: 2vh;
+  color: white;
+}
