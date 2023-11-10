@@ -1,31 +1,26 @@
 import React from 'react'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Nav from './Nav';
 import DogList from './DogList';
 import DogDetails from './DogDetails';
 import './App.css';
 
 function App(dogs) {
-    return (
-        <div className="App">
+	return (
+		<div className="App">
+			<BrowserRouter>
+				<Nav />
 
-            <BrowserRouter>
+				<Routes>
+					<Route exact path="/dogs" element={<DogList dogs={dogs.dogs} />}></Route>
 
-            <Nav />
+					<Route path="/dogs/:name" element={<DogDetails dogs={dogs.dogs} />}></Route>
 
-                <Routes>
-                    <Route exact path='/dogs' element={<DogList dogs={dogs.dogs}/> }></Route>
-
-                    <Route 
-                    path='/dogs/:name' 
-                    element={<DogDetails dogs={dogs.dogs}/>} 
-                    >
-                    </Route>
-                </Routes>
-
-            </BrowserRouter>
-        </div>
-    );
+					<Route path="*" element={<Navigate replace to="/dogs" />}></Route>
+				</Routes>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 App.defaultProps = {
